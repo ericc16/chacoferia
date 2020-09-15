@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Documents {% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body{background-color:hsl(120,60%,80%);padding: 5%;font-family: Arial;}
+        
+    </style>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+        <form class="form-inline my-2 my-sm-0">
+            <input class="form-control mr-sm-2" type="text">
+            <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="buscar">  
+        </form> 
+        
+
+    <div class="menu"> 
+        <ul>
+            <li><a href="{% url 'inicio' %}">INICIO</a></li>
+            <li><a href="#">CATEGORIAS</a></li>
+            <li><a href="#">TIENDAS</a></li>
+            <li><a href="#">PUBLICACIONES</a></li>
+            <li class="#"><a href="">AYUDA</a></li>
+            
+
+        </ul>
+    </div>
+
+    <article> 
+        <div class="card">
+            <img src="foto1.jpg" alt="">
+            <p>$350.00</p>
+        </div>
+    </article>
+
+    {% block header %}
+    <h4>Este es el bloque HEADER</h4>
+    {% endblock %}
+
+    {% block content %}
+    
+    <h5>Este es el archivo BASE</h5>
+    {% endblock %}
+    
+    {% block footer %}
+    <h5>Este es el footer BASE</h5>
+    {% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+{% extends 'base/base.html' %}
+
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Post</title>
+	<!-- Estilos css Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script>
+		function includeHTML() {
+		  var z, i, elmnt, file, xhttp;
+		  /*loop through a collection of all HTML elements:*/
+		  z = document.getElementsByTagName("*");
+		  for (i = 0; i < z.length; i++) {
+		    elmnt = z[i];
+		    /*search for elements with a certain atrribute:*/
+		    file = elmnt.getAttribute("w3-include-html");
+		    if (file) {
+		      /*make an HTTP request using the attribute value as the file name:*/
+		      xhttp = new XMLHttpRequest();
+		      xhttp.onreadystatechange = function() {
+		        if (this.readyState == 4) {
+		          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+		          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+		          /*remove the attribute, and call this function once more:*/
+		          elmnt.removeAttribute("w3-include-html");
+		          includeHTML();
+		        }
+		      }      
+		      xhttp.open("GET", file, true);
+		      xhttp.send();
+		      /*exit the function:*/
+		      return;
+		    }
+		  }
+		};
+	</script>
+</head>
+<body class="table-success">
+	<div class="container">
+		<header class="bg-success">
+			<!-- Aquí colocamos una separacion entre el margen top y el header -->
+			<div class="nav-item">&nbsp;</div>
+			<!-- Aquí llamamos al logo -->
+			<div class="text-left" style="margin-left: 5%;">
+				<div w3-include-html="logo.html"></div>
+			</div>
+			<!-- Barra de navegación -->
+			<div class="navbar-dark bg-dark">
+				<div class="row text-left">
+					<div class="col nav-item"><a class="nav-link text-light" href="">INICIO</a></div>
+				    <div class="col nav-item"><a class="nav-link text-light" href="">TIENDAS</a></div>
+				    <div class="col nav-item"><a class="nav-link text-light" href="">VENDER</a></div>
+				    <div class="col nav-item"><a class="nav-link text-light" href="">AYUDA</a></div>
+				</div>				
+			</div>
+		</header>
+		<!-- Aquí colocamos una separacion entre el header y el contenido -->
+		<div class="nav-item">&nbsp;</div>
+		<h4 class="font-weight-bold text-center">NUEVA PUBLICACIÓN</h4>
+		<!-- Formulario de publicación -->
+		<form action="" method="" class="offset-sm-3">
+			<div class="row">
+				<div class="col-8">
+					<div class="form-group">
+						<label for="nombre">Nombre: </label>
+						<input type="text" name="nombre" id="nombre" class="form-control">
+					</div>
+				<div class="form-group">
+					<label for="slug">Slug: </label>
+					<input type="text" name="slug" id="slug" class="form-control">
+				</div>
+			</div>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					<div class="form-group">
+						<label for="categoria">Categoria</label>
+						<select name="categoria" id="categoria" class="form-control">
+							<option value="" selected hidden> ------- </option>
+						</select>
+					</div>
+				</div>
+				<div class="col-2">
+					<div class="form-group">
+						<div>
+							<br>
+							<a style="text-decoration: none;" href=""><span class="text-success" style="font-size:30px;"> &#10010;</span></a>&nbsp;&nbsp;&nbsp;
+							<a style="text-decoration: none;" href=""><span style="font-size:30px; color: #D4A214;">&#9998;</span></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-8">
+					<div class="form-group">
+						<label for="imagen">Imagen: </label>
+						<input type="file" name="imagen" id="imagen" class="form-control-file">
+					</div>
+					<div class="form-group">
+					    <label for="extracto">Extracto: </label>
+					    <textarea name="extracto" id="extracto" class="form-control" rows="3"></textarea>
+					</div>
+					<div class="form-group">
+					    <label for="infoProducto">Información del producto: </label>
+					    <textarea name="infoProducto" id="infoProducto" class="form-control" rows="3"></textarea>
+					</div>
+						<div class="form-group">
+							<label for="precio">Precio</label>
+							<input type="text" name="precio" id="precio" class="form-control">
+						</div>
+					<div class="form-group form-check">
+						<input type="checkbox" name="available" id="available" class="form-check-input">
+						<label for="available">Available</label>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-8">
+			    	<input class="btn btn-success font-weight-bold btn-user btn-block" type="submit" value="Publicar">
+			    </div>
+			</div>
+		</form>
+		<br>
+		<br>
+		<br>
+	</div>
+	<!-- Importar logo -->
+	<script> includeHTML();</script>
+	<!-- Script usados por Bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>	
+</body>
+</html>
